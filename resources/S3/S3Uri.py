@@ -10,7 +10,6 @@ from BidirMap import BidirMap
 from logging import debug
 import S3
 from Utils import unicodise, check_bucket_name_dns_conformity
-import Config
 
 class S3Uri(object):
     type = None
@@ -81,9 +80,9 @@ class S3UriS3(S3Uri):
 
     def public_url(self):
         if self.is_dns_compatible():
-            return "http://%s.%s/%s" % (self._bucket, Config.Config().host_base, self._object)
+            return "http://%s.s3.amazonaws.com/%s" % (self._bucket, self._object)
         else:
-            return "http://%s/%s/%s" % (self._bucket, Config.Config().host_base, self._object)
+            return "http://s3.amazonaws.com/%s/%s" % (self._bucket, self._object)
 
     def host_name(self):
         if self.is_dns_compatible():

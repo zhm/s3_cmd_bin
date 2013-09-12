@@ -4,7 +4,6 @@
 ## License: GPL Version 2
 
 from BidirMap import BidirMap
-import Utils
 
 class SortedDictIterator(object):
     def __init__(self, sorted_dict, keys):
@@ -45,8 +44,6 @@ class SortedDict(dict):
 
     def __iter__(self):
         return SortedDictIterator(self, self.keys())
-
-
 
 if __name__ == "__main__":
     d = { 'AWS' : 1, 'Action' : 2, 'america' : 3, 'Auckland' : 4, 'America' : 5 }

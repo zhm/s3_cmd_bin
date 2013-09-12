@@ -44,7 +44,7 @@ class S3Error (S3Exception):
         if response.has_key("headers"):
             for header in response["headers"]:
                 debug("HttpHeader: %s: %s" % (header, response["headers"][header]))
-        if response.has_key("data") and response["data"]:
+        if response.has_key("data"):
             tree = getTreeFromXml(response["data"])
             error_node = tree
             if not error_node.tag == "Error":
